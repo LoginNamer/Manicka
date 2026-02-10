@@ -12,7 +12,8 @@ namespace EvolveGames
         [Header("PlayerController")] [SerializeField]
         public Transform Camera;
 
-        [SerializeField] public ItemChange Items;
+        public bool BlockCursor = false;
+
         [SerializeField, Range(1, 10)] float walkingSpeed = 3.0f;
         [Range(0.1f, 5)] public float CroughSpeed = 1.0f;
         [SerializeField, Range(2, 20)] float RuningSpeed = 4.0f;
@@ -68,10 +69,13 @@ namespace EvolveGames
         void Start()
         {
             characterController = GetComponent<CharacterController>();
-            if (Items == null && GetComponent<ItemChange>()) Items = GetComponent<ItemChange>();
             cam = GetComponentInChildren<Camera>();
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
+            if (BlockCursor)
+            {
+                Cursor.lockState = CursorLockMode.Locked;
+                Cursor.visible = false;
+            }
+
             InstallCroughHeight = characterController.height;
             InstallCameraMovement = Camera.localPosition;
             InstallFOV = cam.fieldOfView;
@@ -156,39 +160,6 @@ namespace EvolveGames
             {
                 WallDistance = Physics.Raycast(GetComponentInChildren<Camera>().transform.position,
                     transform.TransformDirection(Vector3.forward), out ObjectCheck, HideDistance, LayerMaskInt);
-                Items.ani.SetBool("Hide", WallDistance);
-                Items.DefiniteHide = WallDistance;
-            }
-        }
-
-        private void OnTriggerEnter(Collider other)
-        {
-            if (other.tag == "Ladder" && CanClimbing)
-            {
-                CanRunning = false;
-                isClimbing = true;
-                WalkingValue /= 2;
-                Items.Hide(true);
-            }
-        }
-
-        private void OnTriggerStay(Collider other)
-        {
-            if (other.tag == "Ladder" && CanClimbing)
-            {
-                moveDirection = new Vector3(0, Input.GetAxis("Vertical") * Speed * (-Camera.localRotation.x / 1.7f), 0);
-            }
-        }
-
-        private void OnTriggerExit(Collider other)
-        {
-            if (other.tag == "Ladder" && CanClimbing)
-            {
-                CanRunning = true;
-                isClimbing = false;
-                WalkingValue *= 2;
-                Items.ani.SetBool("Hide", false);
-                Items.Hide(false);
             }
         }
     }

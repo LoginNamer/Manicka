@@ -4,16 +4,23 @@ using UnityEngine;
 
 public class SpellCaster : MonoBehaviour
 {
-    [SerializeField] private Spell _spell;
     [SerializeField] private SpellAnimator _spellAnimator;
+
+    public List<Spell> Spells = new List<Spell>();
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha1))
+        if (Spells.Count == 0)
+            return;
+
+        for (int i = 0; i < Spells.Count; i++)
         {
-            _spell.UpdateSpell();
-            _spellAnimator.StartCoroutine(_spellAnimator.PlayHand(_spell.Hands.ToArray(),
-                () => { _spell.SpellSpawnType.PerformSpawn(_spell)?.Invoke(); }, _spell));
+            if (Input.GetKeyDown(Spells[i].KeyCode))
+            {
+                Spells[i].UpdateSpell();
+                _spellAnimator.StartCoroutine(_spellAnimator.PlayHand(Spells[i].Hands.ToArray(),
+                    () => { Spells[i].SpellSpawnType.PerformSpawn(Spells[i])?.Invoke(); }, Spells[i]));
+            }
         }
     }
 }
