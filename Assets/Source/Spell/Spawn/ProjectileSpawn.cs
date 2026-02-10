@@ -6,10 +6,16 @@ using UnityEngine;
 public class ProjectileSpawn : SpellSpawnType
 {
     [SerializeField] private Pool _projectilePool;
-    [SerializeField] private Transform _spawnPoint;
-    [SerializeField] private Transform _camera;
+    private Transform _spawnPoint;
+    private Transform _camera;
 
     public override int Count { get; set; } = 1;
+
+    private void Start()
+    {
+        _spawnPoint = SpellCaster.Instance.CastPoint;
+        _camera = SpellCaster.Instance.Camera;
+    }
 
     public override Action PerformSpawn(Spell spell)
     {

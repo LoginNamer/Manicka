@@ -10,11 +10,20 @@ public enum Element
     Ice
 }
 
+public enum SpellCharacteristic
+{
+    Damage,
+    DamageMultiplicator,
+    Speed,
+    SpeedMultiplicator,
+    SpawnCount
+}
+
 public class Spell : MonoBehaviour
 {
     [field: SerializeField] public List<string> Hands = new List<string>(0);
     [field: SerializeField] public KeyCode KeyCode;
-    [field: SerializeField] public SpellModificatorContainer Modificators;
+    [field: SerializeField] public List<SpellModificatorContainer> Modificators = new List<SpellModificatorContainer>();
     [field: SerializeField] public Element Element { get; private set; }
     [field: SerializeField] public SpellSpawnType SpellSpawnType { get; private set; }
     [field: SerializeField] public float BaseCastSpeed { get; private set; }
@@ -43,10 +52,12 @@ public class Spell : MonoBehaviour
         SpellSpawnType.UpdateModificators();
         Hands = new List<string>();
 
-        for (int i = 0; i < Modificators.SpellModificators.Count; i++)
-        {
-            Modificators.SpellModificators[i].PerformModificator(this);
-        }
+
+        if (Modificators.Count != 0)
+            for (int i = 0; i < Modificators.Count; i++)
+            {
+                Modificators[i].PerformModificators(this);
+            }
 
         SpellSpawnType.PerformModificator(this);
     }
