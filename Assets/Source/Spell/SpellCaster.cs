@@ -5,7 +5,10 @@ using UnityEngine;
 
 public class SpellCaster : MonoBehaviour
 {
+    public Pool HitEffectPool;
+    
     public Transform CastPoint;
+    public Transform LaserCastPoint;
     public Transform Camera;
     [SerializeField] private SpellAnimator _spellAnimator;
 

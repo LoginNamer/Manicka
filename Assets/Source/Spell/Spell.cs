@@ -16,12 +16,21 @@ public enum SpellCharacteristic
     DamageMultiplicator,
     Speed,
     SpeedMultiplicator,
-    SpawnCount
+    SpawnCount,
+    Size
+}
+
+[Serializable]
+public struct Hand
+{
+    public string Name;
+    public float Duration;
+    public bool PerformSpawn;
 }
 
 public class Spell : MonoBehaviour
 {
-    [field: SerializeField] public List<string> Hands = new List<string>(0);
+    [field: SerializeField] public List<Hand> Hands = new List<Hand>(0);
     [field: SerializeField] public KeyCode KeyCode;
     [field: SerializeField] public List<SpellModificatorContainer> Modificators = new List<SpellModificatorContainer>();
     [field: SerializeField] public Element Element { get; private set; }
@@ -50,7 +59,7 @@ public class Spell : MonoBehaviour
         Damage = BaseDamage;
         DamageMultiplier = BaseDamageMultiplier;
         SpellSpawnType.UpdateModificators();
-        Hands = new List<string>();
+        Hands = new List<Hand>();
 
 
         if (Modificators.Count != 0)

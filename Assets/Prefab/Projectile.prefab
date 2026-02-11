@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5026730918583249703}
   - component: {fileID: 1937319200992012702}
   - component: {fileID: 6266235348262929331}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -129,7 +129,7 @@ GameObject:
   - component: {fileID: 7666764339488487768}
   - component: {fileID: 6601912603756748033}
   - component: {fileID: 2717114375771001335}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Fire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -228,7 +228,7 @@ ParticleSystem:
       m_RotationOrder: 4
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
-  scalingMode: 1
+  scalingMode: 0
   randomSeed: 0
   InitialModule:
     serializedVersion: 3
@@ -4961,7 +4961,7 @@ GameObject:
   - component: {fileID: 3723141034137713713}
   - component: {fileID: 6813573339121664106}
   - component: {fileID: 5233743885288249220}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5081,7 +5081,7 @@ GameObject:
   - component: {fileID: 6363939766442878973}
   - component: {fileID: 3137181958181774573}
   - component: {fileID: 1431998149574747082}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Projectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5149,7 +5149,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 1
 --- !u!65 &3137181958181774573
 BoxCollider:
@@ -5203,7 +5203,7 @@ GameObject:
   - component: {fileID: 4536692016906628959}
   - component: {fileID: 715102712744381171}
   - component: {fileID: 8205884567695809277}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: VFX_Fire 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5300,7 +5300,7 @@ ParticleSystem:
       m_RotationOrder: 4
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
-  scalingMode: 1
+  scalingMode: 0
   randomSeed: 0
   InitialModule:
     serializedVersion: 3
@@ -10033,7 +10033,7 @@ GameObject:
   - component: {fileID: 5362704660033870715}
   - component: {fileID: 2033296754765633972}
   - component: {fileID: 954241926751521381}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10151,7 +10151,7 @@ GameObject:
   - component: {fileID: 6227242550136499752}
   - component: {fileID: 3120281339027010237}
   - component: {fileID: 143530924499379876}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cold
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10250,7 +10250,7 @@ ParticleSystem:
       m_RotationOrder: 4
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
-  scalingMode: 1
+  scalingMode: 0
   randomSeed: 0
   InitialModule:
     serializedVersion: 3
@@ -14983,7 +14983,7 @@ GameObject:
   - component: {fileID: 7384859953754922911}
   - component: {fileID: 3491301807809999753}
   - component: {fileID: 2166758657052743422}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Clear
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15082,7 +15082,7 @@ ParticleSystem:
       m_RotationOrder: 4
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
-  scalingMode: 1
+  scalingMode: 0
   randomSeed: 0
   InitialModule:
     serializedVersion: 3
@@ -19815,7 +19815,7 @@ GameObject:
   - component: {fileID: 442567494460311663}
   - component: {fileID: 2725522709826398487}
   - component: {fileID: 8570580524049010002}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: VFX_Fire 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19912,7 +19912,7 @@ ParticleSystem:
       m_RotationOrder: 4
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
-  scalingMode: 1
+  scalingMode: 0
   randomSeed: 0
   InitialModule:
     serializedVersion: 3
@@ -24645,7 +24645,7 @@ GameObject:
   - component: {fileID: 665311725266644493}
   - component: {fileID: 7790261842555937917}
   - component: {fileID: 6662957295368426014}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: VFX_Fire 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24742,7 +24742,7 @@ ParticleSystem:
       m_RotationOrder: 4
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
-  scalingMode: 1
+  scalingMode: 0
   randomSeed: 0
   InitialModule:
     serializedVersion: 3

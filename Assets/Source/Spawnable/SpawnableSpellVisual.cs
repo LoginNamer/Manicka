@@ -28,6 +28,10 @@ public class SpawnableSpellVisual : MonoBehaviour
             {
                 _elementTypesVisuals[i].Visual.SetActive(true);
             }
+            else
+            {
+                _elementTypesVisuals[i].Visual.SetActive(false);
+            }
         }
     }
 

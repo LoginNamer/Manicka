@@ -8,7 +8,6 @@ public class MultipleSpellSpawnModificator : SpellModificator
 {
     public override void PerformModificator(Spell spell)
     {
-        spell.Hands.Add("DoubleSpell");
         spell.SpellSpawnType.Count += 1;
     }
 }

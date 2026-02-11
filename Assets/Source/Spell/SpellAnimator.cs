@@ -8,22 +8,35 @@ public class SpellAnimator : MonoBehaviour
     [SerializeField] private Animator _animator;
 
 
-    public IEnumerator PlayHand(string[] names, Action HandPlayed, Spell spell)
+    public IEnumerator PlayHand(Hand[] names, Action HandPlayed, Spell spell)
     {
         float fade = 0.25f / spell.GetCastSpeed();
         _animator.speed = 0.25f * spell.GetCastSpeed();
+
+        bool handPlayed = false;
         for (int i = 0; i < names.Length; i++)
         {
-            _animator.CrossFadeInFixedTime(names[i], fade);
+            _animator.CrossFadeInFixedTime(names[i].Name, fade);
             yield return new WaitForSeconds(fade);
             yield return new WaitUntil(() =>
             {
                 var state = _animator.GetCurrentAnimatorStateInfo(0);
-                return state.IsName(names[i]) && state.normalizedTime >= 0.95f;
+                return state.IsName(names[i].Name) && state.normalizedTime >= 0.95f;
             });
+            if (names[i].Duration != 0)
+            {
+                if (names[i].PerformSpawn)
+                {
+                    HandPlayed?.Invoke();
+                    handPlayed = true;
+                }
+
+                yield return new WaitForSeconds(names[i].Duration);
+            }
         }
 
-        HandPlayed?.Invoke();
+        if (!handPlayed)
+            HandPlayed?.Invoke();
         _animator.CrossFadeInFixedTime("Idle", fade);
         yield return new WaitForSeconds(fade);
         yield return new WaitUntil(() =>
