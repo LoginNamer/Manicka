@@ -1,10 +1,11 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class ProjectileSpawn : SpellSpawnType
+public class WaveSpawn : SpellSpawnType
 {
     [SerializeField] private Hand _hand;
     [SerializeField] private Pool _projectilePool;
@@ -17,7 +18,7 @@ public class ProjectileSpawn : SpellSpawnType
     private void Start()
     {
         _spawnPoint = SpellCaster.Instance.CastPoint;
-        _camera = SpellCaster.Instance.Camera;
+        _camera = SpellCaster.Instance.Player;
     }
 
     public override Action PerformSpawn(Spell spell)
@@ -30,9 +31,10 @@ public class ProjectileSpawn : SpellSpawnType
         for (int i = 0; i < Count; i++)
         {
             SpawnableSpell SpawnableSpell = _projectilePool.GetFreeElement(_spawnPoint.position,
-                    _camera.rotation * Quaternion.Euler(Random.Range(0, 1), 0, Random.Range(0, 1)))
+                    _camera.rotation)
                 .GetComponent<SpawnableSpell>();
             Debug.Log(SpawnableSpell);
+            SpawnableSpell.transform.eulerAngles = new Vector3(0, _camera.eulerAngles.y, 0);
             SpawnableSpell.transform.localScale = new Vector3(Size, Size, Size);
             SpawnableSpell.Init(spell);
             yield return new WaitForSeconds(0.2f);

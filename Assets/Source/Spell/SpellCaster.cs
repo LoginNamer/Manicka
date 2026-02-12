@@ -10,6 +10,7 @@ public class SpellCaster : MonoBehaviour
     public Transform CastPoint;
     public Transform LaserCastPoint;
     public Transform Camera;
+    public Transform Player;
     [SerializeField] private SpellAnimator _spellAnimator;
 
     public List<Spell> Spells = new List<Spell>();

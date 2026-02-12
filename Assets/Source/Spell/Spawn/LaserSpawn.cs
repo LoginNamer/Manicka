@@ -44,7 +44,8 @@ public class LaserSpawn : SpellSpawnType
             Debug.LogError(_spawnPoint);
             Debug.LogError(_camera);
             SpawnableSpell SpawnableSpell = _laserPool.GetFreeElement(_spawnPoint.position,
-                    _camera.rotation, _spawnPoint)
+                    _camera.rotation * Quaternion.Euler(i * Random.Range(0, 10), i * Random.Range(0, 10), 0),
+                    _spawnPoint)
                 .GetComponent<SpawnableSpell>();
             Debug.Log(SpawnableSpell);
             SpawnableSpell.transform.localScale = new Vector3(Size, Size, Size);

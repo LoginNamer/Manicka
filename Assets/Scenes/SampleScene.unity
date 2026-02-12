@@ -168,6 +168,99 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
+--- !u!1 &110808407
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 110808411}
+  - component: {fileID: 110808410}
+  - component: {fileID: 110808409}
+  - component: {fileID: 110808412}
+  m_Layer: 0
+  m_Name: Spell (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &110808409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 110808407}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afd49b4bd85702a49bdf67ae46adc23a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <SpellModificators>k__BackingField: []
+  references:
+    version: 2
+    RefIds: []
+--- !u!114 &110808410
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 110808407}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a89df74b153f20640b5c05e3821efc04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Hands: []
+  KeyCode: 51
+  Modificators:
+  - {fileID: 110808409}
+  <Element>k__BackingField: 1
+  <SpellSpawnType>k__BackingField: {fileID: 110808412}
+  <BaseCastSpeed>k__BackingField: 3
+  <BaseCastSpeedMultiplier>k__BackingField: 2
+  <BaseDamage>k__BackingField: 2
+  <BaseDamageMultiplier>k__BackingField: 1
+  Damage: 0
+  DamageMultiplier: 0
+  CastSpeed: 0
+  CastSpeedMultiplier: 0
+--- !u!4 &110808411
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 110808407}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -10.6300335, y: -2.5183573, z: -3.8265498}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &110808412
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 110808407}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27c719cbc1dfad74e8fb980837e9938e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _hand:
+    Name: Projectile
+    Duration: 0
+    PerformSpawn: 0
+  _projectilePool: {fileID: 1935171893}
 --- !u!1 &219495695
 GameObject:
   m_ObjectHideFlags: 0
@@ -199,10 +292,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afd49b4bd85702a49bdf67ae46adc23a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <SpellModificators>k__BackingField: []
+  <SpellModificators>k__BackingField:
+  - rid: 1925277031705083904
   references:
     version: 2
-    RefIds: []
+    RefIds:
+    - rid: 1925277031705083904
+      type: {class: AddValueToCharacterisc, ns: , asm: Assembly-CSharp}
+      data:
+        _hand:
+          Name: 
+          Duration: 0
+          PerformSpawn: 0
+        _characteristic: 4
+        _addValue: 2
+        _elemntCondition: 0
+        _needElement: 0
 --- !u!114 &219495698
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -260,7 +365,7 @@ MonoBehaviour:
   _hand:
     Name: Laser
     Duration: 5
-    PerformSpawn: 0
+    PerformSpawn: 1
 --- !u!1 &289819507
 GameObject:
   m_ObjectHideFlags: 0
@@ -2208,10 +2313,12 @@ MonoBehaviour:
   CastPoint: {fileID: 415460175}
   LaserCastPoint: {fileID: 1494189195}
   Camera: {fileID: 4582019822512635161}
+  Player: {fileID: 4582019824480639396}
   _spellAnimator: {fileID: 1017318770}
   Spells:
   - {fileID: 1629671687}
   - {fileID: 219495698}
+  - {fileID: 110808410}
 --- !u!1001 &1103389259
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6436,6 +6543,56 @@ Transform:
   - {fileID: 1562347207}
   m_Father: {fileID: 1592395228}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1935171892
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1935171894}
+  - component: {fileID: 1935171893}
+  m_Layer: 0
+  m_Name: 'WavePool '
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1935171893
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1935171892}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64848537dcf68934b9d614d802df501b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _prefabPoolObject: {fileID: 3387359673749943447, guid: a220a931745ca534bb24c021bb3c82f6,
+    type: 3}
+  _container: {fileID: 1935171894}
+  _minObjectsCapacity: 100
+  _maxObjectsCapacity: 2147483647
+  _autoExpand: 1
+--- !u!4 &1935171894
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1935171892}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -10.299358, y: -0.92339027, z: -2.5489924}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!43 &2094690432
 Mesh:
   m_ObjectHideFlags: 0
@@ -8773,8 +8930,10 @@ SceneRoots:
   - {fileID: 1391849470}
   - {fileID: 1892490905}
   - {fileID: 1610826577}
+  - {fileID: 1935171894}
   - {fileID: 1748402237}
   - {fileID: 1592395228}
   - {fileID: 531966470}
   - {fileID: 1629671688}
   - {fileID: 219495699}
+  - {fileID: 110808411}
