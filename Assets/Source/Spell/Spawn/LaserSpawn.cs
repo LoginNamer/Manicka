@@ -6,7 +6,7 @@ using Random = UnityEngine.Random;
 
 public class LaserSpawn : SpellSpawnType
 {
-    [SerializeField] private Pool _laserPool;
+    private Pool _laserPool;
     private Transform _spawnPoint;
     private Transform _camera;
     [SerializeField] private Hand _hand;
@@ -17,11 +17,12 @@ public class LaserSpawn : SpellSpawnType
     }
 
     public override int Count { get; set; } = 1;
-    public override int Size { get; set; } = 1;
+    public override float Size { get; set; } = 1;
 
 
     private void Start()
     {
+        _laserPool = Pools.Instance.LaserPool;
         _spawnPoint = SpellCaster.Instance.LaserCastPoint;
         _camera = SpellCaster.Instance.Camera;
     }

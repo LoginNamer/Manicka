@@ -1,0 +1,74 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4846770330805441597
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5343001426977187141}
+  - component: {fileID: 6180292388633041814}
+  m_Layer: 0
+  m_Name: Univ2Cast1Dmg
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5343001426977187141
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4846770330805441597}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6180292388633041814
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4846770330805441597}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afd49b4bd85702a49bdf67ae46adc23a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <SpellModificators>k__BackingField:
+  - rid: 1925277169363714049
+  - rid: 1925277169363714050
+  references:
+    version: 2
+    RefIds:
+    - rid: 1925277169363714049
+      type: {class: AddValueToCharacterisc, ns: , asm: Assembly-CSharp}
+      data:
+        _hand:
+          Name: 
+          Duration: 0
+          PerformSpawn: 0
+        _characteristic: 2
+        _addValue: 2
+        _elemntCondition: 0
+        _needElement: 2
+    - rid: 1925277169363714050
+      type: {class: AddValueToCharacterisc, ns: , asm: Assembly-CSharp}
+      data:
+        _hand:
+          Name: 
+          Duration: 0
+          PerformSpawn: 0
+        _characteristic: 0
+        _addValue: -1
+        _elemntCondition: 0
+        _needElement: 2

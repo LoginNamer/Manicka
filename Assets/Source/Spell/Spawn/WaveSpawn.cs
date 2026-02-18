@@ -8,16 +8,17 @@ using Random = UnityEngine.Random;
 public class WaveSpawn : SpellSpawnType
 {
     [SerializeField] private Hand _hand;
-    [SerializeField] private Pool _projectilePool;
+    private Pool _projectilePool;
     private Transform _spawnPoint;
     private Transform _camera;
 
     public override int Count { get; set; } = 1;
-    public override int Size { get; set; } = 1;
+    public override float Size { get; set; } = 1;
 
     private void Start()
     {
         _spawnPoint = SpellCaster.Instance.CastPoint;
+        _projectilePool = Pools.Instance.WavePool;
         _camera = SpellCaster.Instance.Player;
     }
 

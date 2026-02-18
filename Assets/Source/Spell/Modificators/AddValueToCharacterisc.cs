@@ -22,22 +22,22 @@ public class AddValueToCharacterisc : SpellModificator
         switch (_characteristic)
         {
             case SpellCharacteristic.Damage:
-                spell.Damage += _addValue;
+                AddValue(ref spell.Damage, _addValue);
                 break;
             case SpellCharacteristic.DamageMultiplicator:
-                spell.DamageMultiplier += _addValue;
+                AddValue(ref spell.DamageMultiplier, _addValue);
                 break;
             case SpellCharacteristic.Speed:
-                spell.CastSpeed += _addValue;
+                AddValue(ref spell.CastSpeed, _addValue);
                 break;
             case SpellCharacteristic.SpeedMultiplicator:
-                spell.CastSpeedMultiplier += _addValue;
+                AddValue(ref spell.CastSpeedMultiplier, _addValue);
                 break;
             case SpellCharacteristic.SpawnCount:
-                spell.SpellSpawnType.Count += (int) _addValue;
+                AddCountValue(spell.SpellSpawnType, _addValue);
                 break;
             case SpellCharacteristic.Size:
-                spell.SpellSpawnType.Size += (int) _addValue;
+                AddSizeValue(spell.SpellSpawnType, _addValue);
                 break;
         }
 
@@ -45,5 +45,20 @@ public class AddValueToCharacterisc : SpellModificator
         {
             spell.Hands.Add(_hand);
         }
+    }
+
+    public virtual void AddValue(ref float value, float toValue)
+    {
+        value += toValue;
+    }
+
+    public virtual void AddCountValue(SpellSpawnType spellSpawnType, float toValue)
+    {
+        spellSpawnType.Count += (int) toValue;
+    }
+
+    public virtual void AddSizeValue(SpellSpawnType spellSpawnType, float toValue)
+    {
+        spellSpawnType.Size += toValue;
     }
 }
